@@ -37,6 +37,9 @@ namespace DirectoryExtension
                         string[] novoRegistroFuncionario = novoFuncionario.ReadLine().Split(";");
                         Funcionario funcionario = NovoRegistroFuncionario(novoRegistroFuncionario);
                         Funcionarios.Add(funcionario);
+
+                        Console.Clear();
+                        Impressao(funcionario);
                     }
                 }
             }
@@ -53,22 +56,17 @@ namespace DirectoryExtension
             string nomeCompleto = novoRegistroFuncionario[1];
             DateTime dataNascimento = DateTime.Parse(novoRegistroFuncionario[2]);
             decimal salario = decimal.Parse(novoRegistroFuncionario[3]);
-            Funcionario funcionarioExistente = Funcionarios.Find(x => x.Id == id);
 
-            if (funcionarioExistente != null)
-            {
-                throw new FormatException("Existem registros com o mesmo ID");
-            }
-            else
-            {
-                foreach (Funcionario funcionario in Funcionarios)
-                {
-                    Console.WriteLine(funcionario);
-                }
-            }
-            Console.WriteLine();
-            Console.WriteLine("Id".PadRight(10) + "NomeCompleto".PadRight(20) + "Data de Nascimento".PadRight(35) + "Salario");
             return new Funcionario(id, nomeCompleto, dataNascimento, salario);
+        }
+        public void Impressao(Funcionario funcionario)
+        {
+                Console.WriteLine("Id".PadRight(10) + "NomeCompleto".PadRight(20) + "Data de Nascimento".PadRight(35) + "Salario");
+        
+            foreach (Funcionario funcionarios in Funcionarios)
+            {
+                Console.WriteLine(funcionarios);
+            }
         }
 
         public Dictionary<int, string> NameDictionaryList()

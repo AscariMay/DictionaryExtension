@@ -26,7 +26,7 @@ namespace DirectoryExtension
 
         public override string ToString()
         {
-            return $"{Id,-10} {NomeCompleto,-25} {DataNascimento,-25:dd/MM/yyyy} {Salario.ToString("F2", CultureInfo.InvariantCulture)}";
-       }
+            return $"{Id,-10} {NomeCompleto,-25} {DataNascimento.ToString("dd/MM/yyyy"),-25} {Salario.ToString("F2", CultureInfo.InvariantCulture)}";
+        }
     }
 }

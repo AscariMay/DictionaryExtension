@@ -7,12 +7,11 @@ namespace DirectoryExtension
     class Program
     {
         static void Main(string[] args)
-        {
-            
+        {            
                 Console.WriteLine("Digite o nome do arquivo que gostaria de ler:");
                 var caminhoArquivo = Console.ReadLine();
 
-                ArquivoFuncionario imprimir = new ArquivoFuncionario(caminhoArquivo);
+            ArquivoFuncionario imprimir = new ArquivoFuncionario(caminhoArquivo);
             try
             {
                 imprimir.ListaFuncionarios();
